@@ -1,6 +1,6 @@
 <template lang="html">
     <div>
-        <v-data-table :headers="headers" :items="desserts" :search="search" :custom-filter="filterOnlyCapsText" item-key="student_id" class="elevation-1">
+        <v-data-table :headers="headers" :items="desserts" :custom-filter="filterOnlyCapsText" item-key="student_id" class="elevation-1" :search="search">
             <template #top>
                 <v-row>
                     <v-col cols="9">
@@ -14,8 +14,8 @@
                 </v-row>
             </template>
             <template #[`item.actions`]="{ item }">
-            <v-btn color="success" :to="item.student_id">
-                <v-icon small class="mr-2">
+            <v-btn color="amber darken-3" :to="item.student_id">
+                <v-icon>
                     mdi-pencil
                 </v-icon>
             </v-btn>
@@ -61,7 +61,7 @@ export default {
             return value != null &&
                 search != null &&
                 typeof value === 'string' &&
-                value.toString().toLocaleUpperCase().includes(search) !== -1
+                value.toString().toLocaleUpperCase().indexOf(search) !== -1
         },
     },   
 }
