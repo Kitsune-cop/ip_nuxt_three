@@ -20,7 +20,7 @@
                 <v-divider>
                 </v-divider>
 
-                <v-list nav dense v-for="(item, i) in items" :key="i" >
+                <v-list v-for="(item, i) in items" :key="i" dense nav>
                     <v-list-item link :to="item.to" router exact>
                         <v-list-item-icon>
                             <v-icon>{{ item.icon }}</v-icon>
