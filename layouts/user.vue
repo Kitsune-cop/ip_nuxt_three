@@ -2,14 +2,14 @@
     <v-app id="inspire">
         <v-app-bar flat>
             <!-- <v-avatar :color="$vuetify.breakpoint.smAndDown ? 'grey darken-1' : 'transparent'" size="32"></v-avatar> -->
-            <v-tabs centered class="ml-n9" color="grey darken-1">
+            <v-tabs centered class="ml-9" color="grey darken-1">
                 <v-tab v-for="(item, link) in links" :key="link" :to="item.to">
                     {{ item.title }}
                 </v-tab>
             </v-tabs>
 
             <v-menu bottom min-width="200px" rounded offset-y>
-                <template v-slot:activator="{ on }">
+                <template #activator="{ on }">
                     <v-btn icon x-large v-on="on">
                         <v-avatar color="brown" size="48">
                             <span class="white--text text-h5">{{ user.initials }}</span>
@@ -23,9 +23,13 @@
                                 <span class="white--text text-h5">{{ user.initials }}</span>
                             </v-avatar>
                             <h3>{{ user.fullName }}</h3>
-                            <p class="text-caption mt-1">
-                                {{ user.email }}
-                            </p>
+                            <v-divider class="my-3"></v-divider>
+                            <v-tabs>
+                                <v-tab v-for="(item, link) in linkss" :key="link" :to="item.to">
+                                    {{ item.title }}
+                                </v-tab>
+                            </v-tabs>
+                            
                             <v-divider class="my-3"></v-divider>
                             <v-btn @click="hendleLogout()">
                                 <v-icon>mdi-logout</v-icon>
@@ -35,10 +39,7 @@
                     </v-list-item-content>
                 </v-card>
             </v-menu>
-            <div class="mx-3 hidden-sm-and-down"></div>
-            <!-- <v-btn icon mdi-account-circle>
-                <v-avatar class="hidden-sm-and-down" color="grey darken-1 shrink" size="32"></v-avatar>
-            </v-btn> -->
+            <div class="hidden-sm-and-down"></div>
         </v-app-bar>
         <v-main>
             <v-container>
@@ -69,9 +70,13 @@
 </template>
   
 <script>
-import Info from '../components/info.vue'
-import Work from '../components/work.vue'
+import Info from '../components/showInfo.vue'
+import Work from '../components/showWork.vue'
 export default {
+    components: {
+        Work, 
+        Info 
+    },
     data: () => ({
         links: [
             {
@@ -80,18 +85,30 @@ export default {
             },
             {
                 title: 'schedule',
-                to: '/user/schedule',
+                to: '/student/schedule',
+            }
+        ],
+        linkss: [
+            {
+                title: 'Score',
+                to: '/student/score',
+            },
+            {
+                title: 'Grade',
+                to: '/student/grade',
+            },
+            {
+                title: 'Classmate',
+                to: '/student/classmate',
             }
         ],
         user: {
             initials: 'Jt',
             fullName: 'John Doe',
-            email: 'john.doe@doe.com',
         },
     }),
-    components: {
-        Work, 
-        Info 
+    mounted() {
+        this.checkLogin();
     },
     methods: {
         hendleLogout() {
@@ -105,8 +122,6 @@ export default {
             } 
         }
     },
-    mounted() {
-        this.checkLogin();
-    }
+    
 }
 </script>
