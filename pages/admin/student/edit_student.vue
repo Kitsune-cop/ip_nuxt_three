@@ -31,6 +31,7 @@
             <v-btn color="success" class='mx-3' @click="handleSubmit()">submit</v-btn>
             <v-btn color="red" type='reset'>clear</v-btn>
         </v-form>
+        {{detial[0].password}}
     </div>
 </template>
 <script>
@@ -65,35 +66,39 @@ export default {
   created(){
     axios.get('http://localhost/service/admin/show_data_student.php', {params :{student_id: this.$route.hash.substr(1, 6)}})
       .then((resp) => {
-            // console.log(resp.data.response);
-            this.detial = resp.data.response
-            this.detial[0].password = ''
-            // console.log(this.detial[0]);
-        })
-  },
-  methods: {
-    handleSubmit() {
-      axios.post('http://localhost/service/admin/add_student.php',
+        this.detial = resp.data.response
+        this.detial[0].password = ''
+        // console.log(this.detial[0]);
+      })
+    },
+    methods: {
+      handleSubmit() {
+        this.detial[0].password = MD5(this.detial.password)
+        console.log(this.detial.password);
+        axios.post('http://localhost/service/admin/update_student.php',
         {
-          student_id: this.student_id,
-          password: MD5(this.password),
-          first_name: this.first_name,
-          last_name: this.last_name,
-          gender: this.gender,
-          social_id: this.social_id,
-          bathday: this.bathday,
-          nationality: this.nationality,
-          phone_number: this.phone_number,
-          first_name_father: this.first_name_father,
-          last_name_father: this.last_name_father,
-          first_name_mother: this.first_name_mother,
-          last_name_mother: this.last_name_mother,
-          first_name_parent: this.fist_name_parent,
-          last_name_parent: this.last_name_parent,
-          phone_number_of_parent: this.phone_number_of_parent,
+          student_id: this.detial[0].student_id,
+          password: this.detial[0].password,
+          first_name: this.detial[0].first_name,
+          last_name: this.detial[0].last_name,
+          gender: this.detial[0].gender,
+          social_id: this.detial[0].social_id,
+          bathday: this.detial[0].bathday,
+          nationality: this.detial[0].nationality,
+          phone_number: this.detial[0].phone_number,
+          first_name_father: this.detial[0].first_name_father,
+          last_name_father: this.detial[0].last_name_father,
+          first_name_mother: this.detial[0].first_name_mother,
+          last_name_mother: this.detial[0].last_name_mother,
+          first_name_parent: this.detial[0].first_name_parent,
+          last_name_parent: this.detial[0].last_name_parent,
+          phone_number_of_parent: this.detial[0].phone_number_of_parent,
           status_id: 1,
         }
-      )
+        )
+        .then((resp)=>{
+          console.log(resp.data)
+        })
     }
   }
 }
