@@ -1,7 +1,7 @@
 <template lang="heml">
     <div>
         <h2>ADD STUDENT</h2>
-        <v-form>
+        <v-form actions=''>
             <v-row>
                 <v-col>
                     <v-text-field v-model="student_id" color="primary" label="Student ID" variant="underlined"></v-text-field>
@@ -12,10 +12,13 @@
                       <v-radio label="Male" value="M"></v-radio>
                       <v-radio label="Female" value="F"></v-radio>
                     </v-radio-group>
+                    <v-text-field v-model="social_id" color="primary" label="Social id" variant="underlined"></v-text-field>
                     <v-text-field v-model="bathday" color="primary" label="Bathday" variant="underlined" type="date" hint="YYYY/MM/DD format"></v-text-field>
                     <v-text-field v-model="nationality" color="primary" label="nationality" variant="underlined"></v-text-field>
                   </v-col>
                   <v-col>
+                  <v-text-field v-model="phone_number" color="primary" label="Phone number" variant="underlined"></v-text-field>
+                  <v-text-field v-model="first_name_father" color="phone_number" label="Phone number" variant="underlined"></v-text-field>
                   <v-text-field v-model="first_name_father" color="primary" label="Father first name" variant="underlined"></v-text-field>
                   <v-text-field v-model="last_name_father" color="primary" label="Father last name" variant="underlined"></v-text-field>
                   <v-text-field v-model="first_name_mother" color="primary" label="Mother first name" variant="underlined"></v-text-field>
@@ -31,6 +34,7 @@
     </div>
 </template>
 <script>
+import MD5 from "crypto-js/md5";
 import axios from 'axios';
 export default {
   layout: 'admin',
@@ -42,23 +46,50 @@ export default {
       first_name: '',
       last_name: '',
       gender: '',
+      social_id: '',
       bathday: '',
       nationality: '',
+      phone_number: '',
       first_name_father: '',
       last_name_father: '',
       first_name_mother: '',
       last_name_mother: '',
       fist_name_parent: '',
       last_name_parent: '',
-      phone_number_of_parent: '',
+      phone_number_of_parent: ''
     }
+  },
+  created(){
+    this.generateStudentID()
   },
   methods: {
     handleSubmit() {
-      this.url = 'http://localhost/service/admin/add_student.php?student_id="'
-        axios.get(this.url).then((resp) => {
-            // console.log(resp.data.response)
-            this.desserts = resp.data.response
+      axios.post('http://localhost/service/admin/add_student.php',
+        {
+          student_id: this.student_id,
+          password: MD5(this.password),
+          first_name: this.first_name,
+          last_name: this.last_name,
+          gender: this.gender,
+          social_id: this.social_id,
+          bathday: this.bathday,
+          nationality: this.nationality,
+          phone_number: this.phone_number,
+          first_name_father: this.first_name_father,
+          last_name_father: this.last_name_father,
+          first_name_mother: this.first_name_mother,
+          last_name_mother: this.last_name_mother,
+          first_name_parent: this.fist_name_parent,
+          last_name_parent: this.last_name_parent,
+          phone_number_of_parent: this.phone_number_of_parent,
+          status_id: 1,
+        }
+      )
+    },
+    generateStudentID() {
+      axios.get('http://localhost/service/admin/get_last_student_id.php').then((resp) => {
+            this.student_id = 'S' + (parseInt(resp.data.response.student_id.substr(1, 6)) + 1).toString()
+            // console.log(resp.data.response.student_id);
         })
     }
   }
