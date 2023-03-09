@@ -18,7 +18,6 @@
                   </v-col>
                   <v-col>
                   <v-text-field v-model="phone_number" color="primary" label="Phone number" variant="underlined"></v-text-field>
-                  <v-text-field v-model="first_name_father" color="phone_number" label="Phone number" variant="underlined"></v-text-field>
                   <v-text-field v-model="first_name_father" color="primary" label="Father first name" variant="underlined"></v-text-field>
                   <v-text-field v-model="last_name_father" color="primary" label="Father last name" variant="underlined"></v-text-field>
                   <v-text-field v-model="first_name_mother" color="primary" label="Mother first name" variant="underlined"></v-text-field>
@@ -64,10 +63,11 @@ export default {
   },
   methods: {
     handleSubmit() {
+      this.detial[0].password = MD5(this.detial[0].password).toString()
       axios.post('http://localhost/service/admin/add_student.php',
         {
           student_id: this.student_id,
-          password: MD5(this.password),
+          password: this.password,
           first_name: this.first_name,
           last_name: this.last_name,
           gender: this.gender,
