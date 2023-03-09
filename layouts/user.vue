@@ -1,6 +1,6 @@
 <template>
     <v-app id="inspire">
-        <v-app-bar >
+        <v-app-bar app="flat">
             <!-- <v-avatar :color="$vuetify.breakpoint.smAndDown ? 'grey darken-1' : 'transparent'" size="32"></v-avatar> -->
             <v-tabs centered class="ml-9" color="grey darken-1">
                 <v-tab v-for="(item, link) in links" :key="link" :to="item.to">
@@ -100,7 +100,7 @@ export default {
         axios.get('http://localhost/service/student/info.php',{params: {id:this.student_id}})
         .then((resp) => {
             this.user = resp.data.response  
-        })
+        });
     },
     methods: {
         hendleLogout() {

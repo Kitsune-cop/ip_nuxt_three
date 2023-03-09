@@ -1,25 +1,26 @@
 <template lang="html">
     <div>
-        <h1>Homework</h1>
-        <ul v-for="item in work" :key="item.sub">
-            <li>{{ item.sub }}</li><p>{{ item.work }}:{{ item.det }}<br>End:{{ item.end }}</p>
+        <h3>Homework</h3>
+        <ul v-for="item in work" :key="item.work_id">
+            <li>{{ item.subject_id }}</li><p>{{ item.work_name }}:{{ item.work_details }}</p>
             <v-divider></v-divider>
         </ul>
     </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
     data() {
         return {
-            work: [
-                {sub:"Math",work:"Mid test",det:"Midtest30%",end:"2020/03/12"},
-                {sub:"Math",work:"prectice",det:"1 prec",end:"2020/03/12"},
-                {sub:"Thai",work:"prectice",det:"1 prec",end:"2020/03/12"},
-            ]
+            work: []
         }
     },
     mounted() {
         this.storage();
+        axios.get('http://localhost/service/student/work.php',{params: {id:this.student_id}})
+          .then((resp) => {
+            this.work = resp.data.response
+          });
     },
     methods: {
         storage(){
