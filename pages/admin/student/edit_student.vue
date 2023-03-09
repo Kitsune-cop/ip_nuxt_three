@@ -72,7 +72,7 @@ export default {
     },
     methods: {
       handleSubmit() {
-        this.detial[0].password = MD5(this.detial[0].password)
+        this.detial[0].password = MD5(this.detial[0].password).toString()
         axios.post('http://localhost/service/admin/update_student.php',
         {
           student_id: this.detial[0].student_id,
