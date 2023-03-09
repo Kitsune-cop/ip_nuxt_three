@@ -18,7 +18,7 @@
                   </v-col>
                   <v-col>
                   <v-text-field v-model="detial[0].phone_number" color="primary" label="Phone number" variant="underlined"></v-text-field>
-                  <v-text-field v-model="detial[0].first_name_father" color="phone_number" label="Phone number" variant="underlined"></v-text-field>
+                  <!-- <v-text-field v-model="detial[0].first_name_father" color="phone_number" label="Phone number" variant="underlined"></v-text-field> -->
                   <v-text-field v-model="detial[0].first_name_father" color="primary" label="Father first name" variant="underlined"></v-text-field>
                   <v-text-field v-model="detial[0].last_name_father" color="primary" label="Father last name" variant="underlined"></v-text-field>
                   <v-text-field v-model="detial[0].first_name_mother" color="primary" label="Mother first name" variant="underlined"></v-text-field>
