@@ -20,15 +20,15 @@
                             <v-avatar color="brown"></v-avatar>
                             <!-- <h3>{{ user[0].fist_name}}&nbsp;{{ user[0].last_name }}</h3> -->
                             <v-divider class="my-3"></v-divider>
-                            <v-btn depressed text to="/student/score">
+                            <v-btn depressed text to="/teacher/score">
                                 Score
                             </v-btn>
                             <v-divider class="my-3"></v-divider>
-                            <v-btn depressed text to="/student/grade">
+                            <v-btn depressed text to="/teacher/grade">
                                 Grade
                             </v-btn>
                             <v-divider class="my-3"></v-divider>
-                            <v-btn depressed text to="/student/classmate">
+                            <v-btn depressed text to="/teacher">
                                 Classmate
                             </v-btn>
                             <v-divider class="my-3"></v-divider>
@@ -72,13 +72,13 @@
   
 <script>
 // import axios from 'axios'
-// import Info from '../components/showInfo.vue'
-// import Work from '../components/showWork.vue'
+import Info from '../../components/teacher/showInfo.vue'
+import Work from '../../components/teacher/showWork.vue'
 
 export default {
     components: {
-        // Work, 
-        // Info 
+        Work, 
+        Info 
     },
     data: () => ({
         links: [
@@ -88,15 +88,15 @@ export default {
             },
             {
                 title: 'schedule',
-                to: '/teacher',
+                to: '/teacher/schedule',
             }
         ],
-        student_id:'',
+        teacher_id:'',
         user: []
     }),
     mounted() {
-        // this.checkLogin();
-        // this.storage();
+        this.checkLogin();
+        this.storage();
         // axios.get('http://localhost/service/student/info.php',{params: {id:this.student_id}})
         // .then((resp) => {
         //     this.user = resp.data.response  
@@ -113,7 +113,7 @@ export default {
             } 
         },
         storage(){
-            this.student_id = sessionStorage.getItem('user_id')
+            this.teacher_id = sessionStorage.getItem('user_id')
         }   
     },
     
