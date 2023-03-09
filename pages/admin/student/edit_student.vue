@@ -31,7 +31,6 @@
             <v-btn color="success" class='mx-3' @click="handleSubmit()">submit</v-btn>
             <v-btn color="red" type='reset'>clear</v-btn>
         </v-form>
-        {{detial[0].password}}
     </div>
 </template>
 <script>
@@ -73,8 +72,7 @@ export default {
     },
     methods: {
       handleSubmit() {
-        this.detial[0].password = MD5(this.detial.password)
-        console.log(this.detial.password);
+        this.detial[0].password = MD5(this.detial[0].password)
         axios.post('http://localhost/service/admin/update_student.php',
         {
           student_id: this.detial[0].student_id,
