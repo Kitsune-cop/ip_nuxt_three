@@ -43,11 +43,6 @@ export default {
         return {
             items: [
                 {
-                    icon: 'mdi-view-dashboard',
-                    title: 'Dashboard',
-                    to: '/admin/dashboard',
-                },
-                {
                     icon: 'mdi-account-multiple',
                     title: 'Student',
                     to: '/admin/student',

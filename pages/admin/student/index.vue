@@ -4,7 +4,7 @@
             <template #top>
                 <v-row>
                     <v-col cols="9">
-                        <v-text-field v-model="search" label="Search (UPPER CASE ONLY)" class="mx-4"></v-text-field>
+                        <v-text-field v-model="search" label="Search" class="mx-4"></v-text-field>
                     </v-col>
                     <v-col class="pt-6">
                         <v-btn color="success" rounded class="me-2">Search</v-btn>
@@ -43,7 +43,7 @@ export default {
                     sortable: true,
                     value: 'student_id',
                 },
-                { text: 'First name', value: 'fist_name' },
+                { text: 'First name', value: 'first_name' },
                 { text: 'Last name', value: 'last_name' },
                 { text: 'Actions', value: 'actions', sortable: false },
             ]
@@ -57,12 +57,6 @@ export default {
         })
     },
     methods: {
-        filterOnlyCapsText(value, search, item) {
-            return value != null &&
-                search != null &&
-                typeof value === 'string' &&
-                value.toString().toLocaleUpperCase().indexOf(search) !== -1
-        },
     },   
 }
 </script>
