@@ -1,6 +1,6 @@
 <template lang="html">
     <div>
-        <v-data-table :headers="headers" :items="desserts" :custom-filter="filterOnlyCapsText" item-key="student_id" class="elevation-1" :search="search">
+        <v-data-table :headers="headers" :items="desserts" item-key="student_id" class="elevation-1" :search="search">
             <template #top>
                 <v-row>
                     <v-col cols="9">
@@ -14,7 +14,7 @@
                 </v-row>
             </template>
             <template #[`item.actions`]="{ item }">
-            <v-btn color="amber darken-3" :to="item.student_id">
+            <v-btn color="amber darken-3" :to="'./student/edit_student#' + item.student_id">
                 <v-icon>
                     mdi-pencil
                 </v-icon>
