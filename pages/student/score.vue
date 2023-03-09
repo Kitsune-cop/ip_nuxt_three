@@ -42,7 +42,7 @@
 <script>
 import axios from 'axios'
     export default{
-        layout: 'user',
+      layout: 'student/user',
         data()  {
             return {
                 student_id:'',

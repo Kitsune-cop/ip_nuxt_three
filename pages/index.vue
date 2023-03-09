@@ -30,7 +30,7 @@
 </template>
 <script>
 export default {
-  layout: 'user',
+  layout: 'student/user',
   data () {
       return {
         colors: [

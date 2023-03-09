@@ -31,7 +31,7 @@
 <script>
 import axios from 'axios'
     export default{
-        layout: 'user',
+      layout: 'student/user',
         data:() =>  ({
                 student_id: 'S15523',
                 days: [
