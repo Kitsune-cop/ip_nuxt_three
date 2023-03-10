@@ -117,7 +117,7 @@ import axios from 'axios'
           this.getInfo()
           this.getAdvciers()
           this.getSche()
-          console.log(this.datas)// eslint-disable-next-line no-console
+          // console.log(this.datas)// eslint-disable-next-line no-console
         },
         // mounted() {
         // this.storage();

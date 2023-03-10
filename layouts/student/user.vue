@@ -92,7 +92,27 @@ export default {
             }
         ],
         student_id:'',
-        user: []
+        user: [
+            {student_id:'',
+                password:'',
+                fist_name:'',
+                last_name:'',
+                gender:'',
+                solial_id:'',
+                bathday:'',
+                nationality:'',
+                phone_number:'',
+                first_name_father:'',
+                last_name_father:'',
+                first_name_mother:'',
+                last_name_mother:'',
+                fist_name_parent:'',
+                last_name_parent:'',
+                phone_number_of_parent:'',
+                status_id:'',
+                school_year:'',
+                grade:'',
+                room:''}]
     }),
     mounted() {
         this.checkLogin();

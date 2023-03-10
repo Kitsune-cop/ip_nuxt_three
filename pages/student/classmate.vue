@@ -45,15 +45,15 @@ import axios from 'axios'
         mounted() {
           
           this.storage();
-          axios.get('http://localhost/service/student/info.php',{params: {id:this.student_id}})
-          .then((resp) => {
-              this.user = resp.data.response  
-          });
-          axios.get('http://localhost/service/student/advicers.php',{params: {id:this.student_id}})
-          .then((resp) => {
-            this.teas = resp.data.response
-          });
-          console.log(this.user[0])// eslint-disable-line no-console
+          // axios.get('http://localhost/service/student/info.php',{params: {id:this.student_id}})
+          // .then((resp) => {
+          //     this.user = resp.data.response  
+          // });
+          // axios.get('http://localhost/service/student/advicers.php',{params: {id:this.student_id}})
+          // .then((resp) => {
+          //   this.teas = resp.data.response
+          // });
+          // console.log(this.user[0])// eslint-disable-line no-console
           axios.get('http://localhost/service/student/classmate.php',{params: {class:'1',room:'1'}})
           .then((resp) => {
             this.stu = resp.data.response
@@ -62,7 +62,7 @@ import axios from 'axios'
         },
         methods: {
           storage(){
-            this.student_id = 'S15523'
+            this.student_id = sessionStorage.getItem('user_id')
           }        
         },
     }
