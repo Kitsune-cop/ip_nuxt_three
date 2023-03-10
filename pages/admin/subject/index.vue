@@ -1,6 +1,6 @@
 <template lang="html">
     <div>
-        <v-data-table :headers="headers" :items="desserts" item-key="student_id" class="elevation-1" :search="search">
+        <v-data-table :headers="headers" :items="desserts" item-key="subject_id" class="elevation-1" :search="search">
             <template #top>
                 <v-row>
                     <v-col cols="9">
@@ -8,13 +8,13 @@
                     </v-col>
                     <v-col class="pt-6">
                         <v-btn color="success" rounded class="me-2">Search</v-btn>
-                        <v-btn color="primary" rounded to="./student/add_student"><v-icon dark>mdi-plus</v-icon>New
-                            Student</v-btn>
+                        <v-btn color="primary" rounded to="./subject/add_subject"><v-icon dark>mdi-plus</v-icon>New
+                            Subject</v-btn>
                     </v-col>
                 </v-row>
             </template>
             <template #[`item.actions`]="{ item }">
-            <v-btn color="amber darken-3" :to="'./student/edit_student#' + item.student_id">
+            <v-btn color="amber darken-3" :to="'./subject/edit_subject#' + item.subject_id">
                 <v-icon>
                     mdi-pencil
                 </v-icon>
@@ -38,19 +38,18 @@ export default {
         headers() {
             return [
                 {
-                    text: 'Student id',
+                    text: 'subject id',
                     align: 'start',
                     sortable: true,
-                    value: 'student_id',
+                    value: 'subject_id',
                 },
-                { text: 'First name', value: 'first_name' },
-                { text: 'Last name', value: 'last_name' },
+                { text: 'Subject name', value: 'subject_name' },
                 { text: 'Actions', value: 'actions', sortable: false },
             ]
         },
     },
     created() {
-        this.url = 'http://localhost/service_ip3/admin/student/show_student_name.php'
+        this.url = 'http://localhost/service_ip3/admin/subject/show_subject_name.php'
         axios.get(this.url).then((resp) => {
             // console.log(resp.data.response)
             this.desserts = resp.data.response
