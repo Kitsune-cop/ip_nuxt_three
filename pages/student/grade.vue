@@ -48,7 +48,7 @@ import axios from 'axios'
         },
         created(){
             this.storage();
-            axios.get('http://localhost/service/student/grade.php',{params :{id:this.student_id}})
+            axios.get('http://localhost/service_ip3/student/grade.php',{params :{id:this.student_id}})
             .then((resp) => {
               this.grade = resp.data.response
             });

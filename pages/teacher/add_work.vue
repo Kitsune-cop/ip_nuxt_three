@@ -43,7 +43,7 @@ import axios from 'axios'
         },
         methods: {
             handleSubmit() {
-            axios.post('http://localhost/service/admin/add_student.php',
+            axios.post('http://localhost/service_ip3/admin/add_student.php',
                 {
                     teacher_id: '',
                     work_name:'',

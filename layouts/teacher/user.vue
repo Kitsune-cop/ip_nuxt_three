@@ -1,6 +1,6 @@
 <template>
     <v-app id="inspire">
-        <v-app-bar flat>
+        <v-app-bar app="flat">
             <!-- <v-avatar :color="$vuetify.breakpoint.smAndDown ? 'grey darken-1' : 'transparent'" size="32"></v-avatar> -->
             <v-tabs centered class="ml-9" color="grey darken-1">
                 <v-tab v-for="(item, link) in links" :key="link" :to="item.to">
@@ -84,7 +84,7 @@ export default {
         links: [
             {
                 title: 'home',
-                to: '/',
+                to: '/teacher',
             },
             {
                 title: 'schedule',
@@ -119,7 +119,7 @@ export default {
     mounted() {
         this.checkLogin();
         this.storage();
-        axios.get('http://localhost/service/teacher/info.php',{params: {id:this.teacher_id}})
+        axios.get('http://localhost/service_ip3/teacher/info.php',{params: {id:this.teacher_id}})
         .then((resp) => {
             this.tea = resp.data.response
         })
@@ -127,7 +127,7 @@ export default {
     methods: {
         hendleLogout() {
             sessionStorage.clear()
-            window.location = './login'
+            window.location = '../login'
         },
         checkLogin() {
             if(!sessionStorage.getItem('user_id')){

@@ -54,7 +54,7 @@ export default {
                 },
                 {
                     icon: 'mdi-folder',
-                    title: 'Schedule',
+                    title: 'Subject',
                     to: '/admin/subject',
                 },
             ],

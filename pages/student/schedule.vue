@@ -124,19 +124,19 @@ import axios from 'axios'
         // },
         methods: {
           getInfo(){
-            axios.get('http://localhost/service/student/info.php',{params: {id:this.student_id}})
+            axios.get('http://localhost/service_ip3/student/info.php',{params: {id:this.student_id}})
             .then((resp) => {
               this.datas = resp.data.response
             });
           },
           getAdvciers(){
-            axios.get('http://localhost/service/student/advicers.php',{params: {id:this.student_id}})
+            axios.get('http://localhost/service_ip3/student/advicers.php',{params: {id:this.student_id}})
             .then((resp) => {
               this.teas = resp.data.response
             });
           },
           getSche(){
-            axios.get('http://localhost/service/student/schedule.php',{params: {id:this.student_id}})
+            axios.get('http://localhost/service_ip3/student/schedule.php',{params: {id:this.student_id}})
             .then((resp) => {
               this.table = resp.data.response
             });

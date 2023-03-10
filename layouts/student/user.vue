@@ -84,7 +84,7 @@ export default {
         links: [
             {
                 title: 'home',
-                to: '/',
+                to: '/student',
             },
             {
                 title: 'schedule',
@@ -117,7 +117,7 @@ export default {
     mounted() {
         this.checkLogin();
         this.storage();
-        axios.get('http://localhost/service/student/info.php',{params: {id:this.student_id}})
+        axios.get('http://localhost/service_ip3/student/info.php',{params: {id:this.student_id}})
         .then((resp) => {
             this.user = resp.data.response  
         });
@@ -125,11 +125,11 @@ export default {
     methods: {
         hendleLogout() {
             sessionStorage.clear()
-            window.location = './login'
+            window.location = '../login'
         },
         checkLogin() {
             if(!sessionStorage.getItem('user_id')){
-                window.location = './login'
+                window.location = '../login'
             } 
         },
         storage(){

@@ -45,16 +45,16 @@ import axios from 'axios'
         mounted() {
           
           this.storage();
-        //   axios.get('http://localhost/service/student/info.php',{params: {id:this.student_id}})
+        //   axios.get('http://localhost/service_ip3/student/info.php',{params: {id:this.student_id}})
         //   .then((resp) => {
         //       this.user = resp.data.response  
         //   });
-        //   axios.get('http://localhost/service/student/advicers.php',{params: {id:this.student_id}})
+        //   axios.get('http://localhost/service_ip3/student/advicers.php',{params: {id:this.student_id}})
         //   .then((resp) => {
         //     this.teas = resp.data.response
         //   });
         //   console.log(this.user[0])// eslint-disable-line no-console
-          axios.get('http://localhost/service/teacher/classmate.php',{params: {id:this.teacher_id}})
+          axios.get('http://localhost/service_ip3/teacher/classmate.php',{params: {id:this.teacher_id}})
           .then((resp) => {
             this.stu = resp.data.response
           });

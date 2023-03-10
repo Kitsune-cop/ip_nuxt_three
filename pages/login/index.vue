@@ -31,7 +31,7 @@ export default {
                     // console.log(resp)
                     sessionStorage.setItem('user_id', this.username)
                     sessionStorage.setItem('password', MD5(this.password))
-                    window.location = '/'
+                    window.location = '/teacher'
                 })
                 .catch(()=>{
                     this.errorMsg = 'Incorrect username or password.'
@@ -42,7 +42,7 @@ export default {
                     // console.log(resp)
                     sessionStorage.setItem('user_id', this.username)
                     sessionStorage.setItem('password', MD5(this.password))
-                    window.location = '/'
+                    window.location = '/student'
                 })
                 .catch(()=>{
                     this.errorMsg = 'Incorrect username or password.'
