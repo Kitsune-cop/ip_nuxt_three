@@ -95,7 +95,7 @@ export default {
         }
         )
         .then((resp)=>{
-          console.log(resp.data)
+          // console.log(resp.data)
         })
     }
   }

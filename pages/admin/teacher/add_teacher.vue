@@ -85,7 +85,7 @@ export default {
           status_id: 1,
         }
       ).then((resp) => {
-        console.log(resp.data);
+        // console.log(resp.data);
       })
     },
     generateTeacherID() {
