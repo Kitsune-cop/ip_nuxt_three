@@ -64,7 +64,7 @@ export default {
   methods: {
     handleSubmit() {
       this.detial[0].password = MD5(this.detial[0].password).toString()
-      axios.post('http://localhost/service/admin/add_student.php',
+      axios.post('http://localhost/service_ip3/admin/student/add_student.php',
         {
           student_id: this.student_id,
           password: this.password,
@@ -87,7 +87,7 @@ export default {
       )
     },
     generateStudentID() {
-      axios.get('http://localhost/service/admin/get_last_student_id.php').then((resp) => {
+      axios.get('http://localhost/service_ip3/admin/student/get_last_student_id.php').then((resp) => {
             this.student_id = 'S' + (parseInt(resp.data.response.student_id.substr(1, 6)) + 1).toString()
             // console.log(resp.data.response.student_id);
         })

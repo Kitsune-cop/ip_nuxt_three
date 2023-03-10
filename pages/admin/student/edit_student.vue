@@ -63,7 +63,7 @@ export default {
     }
   },
   created(){
-    axios.get('http://localhost/service/admin/show_data_student.php', {params :{student_id: this.$route.hash.substr(1, 6)}})
+    axios.get('http://localhost/service_ip3/admin/student/show_data_student.php', {params :{student_id: this.$route.hash.substr(1, 6)}})
       .then((resp) => {
         this.detial = resp.data.response
         this.detial[0].password = ''
@@ -73,7 +73,7 @@ export default {
     methods: {
       handleSubmit() {
         this.detial[0].password = MD5(this.detial[0].password).toString()
-        axios.post('http://localhost/service/admin/update_student.php',
+        axios.post('http://localhost/service_ip3/admin/student/update_student.php',
         {
           student_id: this.detial[0].student_id,
           password: this.detial[0].password,

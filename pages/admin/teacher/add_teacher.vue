@@ -64,7 +64,7 @@ export default {
   methods: {
     handleSubmit() {
       this.password = MD5(this.password).toString()
-      axios.post('http://localhost/service/admin/add_teacher.php',
+      axios.post('http://localhost/service_ip3/admin/teacher/add_teacher.php',
         {
           teacher_id: this.teacher_id,
           password: this.password,
@@ -89,7 +89,7 @@ export default {
       })
     },
     generateTeacherID() {
-      axios.get('http://localhost/service/admin/get_last_teacher_id.php').then((resp) => {
+      axios.get('http://localhost/service_ip3/admin/teacher/get_last_teacher_id.php').then((resp) => {
             this.teacher_id = 'T' + (parseInt(resp.data.response.teacher_id.substr(1, 6)) + 1).toString()
             // console.log(resp.data.response.teacher_id);
         })

@@ -50,7 +50,7 @@ export default {
         },
     },
     created() {
-        this.url = 'http://localhost/service/admin/show_student_name.php'
+        this.url = 'http://localhost/service_ip3/admin/student/show_student_name.php'
         axios.get(this.url).then((resp) => {
             // console.log(resp.data.response)
             this.desserts = resp.data.response
