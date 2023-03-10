@@ -1,20 +1,20 @@
 <template lang="html">
     <div>
         <h4>Teacher id: {{ teacher_id }}</h4>
-        <h4>Name: {{ stu[0].fist_name }}&nbsp;{{ stu[0].last_name }}</h4>
-        <h4>Tel: {{ stu[0].phone_number }}</h4>
-        <h4>Gender: {{ stu[0].gender }}</h4>
-        <h4>Birthday: {{ stu[0].bathday }}</h4>
-        <h4>Nationality: {{ stu[0].nationality }}</h4>
+        <h4>Name: {{ tea[0].fist_name }}&nbsp;{{ tea[0].last_name }}</h4>
+        <h4>Tel: {{ tea[0].phone_number }}</h4>
+        <h4>Gender: {{ tea[0].gender }}</h4>
+        <h4>Birthday: {{ tea[0].bathday }}</h4>
+        <h4>Nationality: {{ tea[0].nationality }}</h4>
     </div>
 </template>
 <script>
-// import axios from 'axios'
+import axios from 'axios'
 export default {
     data: () => ({
             teacher_id: '',
-            stu: [{
-                student_id:'',
+            tea: [{
+                teacher_id:'',
                 password:'',
                 fist_name:'',
                 last_name:'',
@@ -39,10 +39,10 @@ export default {
     }),
     mounted() {
         this.storage();
-        // axios.get('http://localhost/service/student/info.php',{params: {id:this.student_id}})
-        // .then((resp) => {
-        //     this.stu = resp.data.response
-        // })
+        axios.get('http://localhost/service/teacher/info.php',{params: {id:this.teacher_id}})
+        .then((resp) => {
+            this.tea = resp.data.response
+        })
     },
     methods: {
         storage(){

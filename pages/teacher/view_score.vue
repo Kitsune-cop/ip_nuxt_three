@@ -41,21 +41,21 @@
       layout: 'teacher/user',
         data()  {
             return {
-                student_id:'',
+                teacher_id:'',
                 score: []
             }
         },
         mounted() {
           this.storage();
 
-        //   axios.get('http://localhost/service/student/score.php',{params: {id:this.student_id}})
-        //   .then((resp) => {
-        //     this.score = resp.data.response
-        //   });
+          // axios.get('http://localhost/service/teacher/info.php',{params: {id:this.teacher_id}})
+          // .then((resp) => {
+          //   this.score = resp.data.response
+          // });
         },
         methods: {
           storage(){
-            this.student_id = sessionStorage.getItem('user_id')
+            this.teacher_id = sessionStorage.getItem('user_id')
           }        
         },
     }

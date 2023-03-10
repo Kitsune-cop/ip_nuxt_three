@@ -18,7 +18,7 @@
                     <v-list-item-content class="justify-center">
                         <div class="mx-auto text-center">
                             <v-avatar color="brown"></v-avatar>
-                            <!-- <h3>{{ user[0].fist_name}}&nbsp;{{ user[0].last_name }}</h3> -->
+                            <h3>{{ tea[0].fist_name}}&nbsp;{{ tea[0].last_name }}</h3>
                             <v-divider class="my-3"></v-divider>
                             <v-btn depressed text to="/teacher/score">
                                 Score
@@ -28,7 +28,7 @@
                                 Grade
                             </v-btn>
                             <v-divider class="my-3"></v-divider>
-                            <v-btn depressed text to="/teacher">
+                            <v-btn depressed text to="/teacher/classmate">
                                 Classmate
                             </v-btn>
                             <v-divider class="my-3"></v-divider>
@@ -71,7 +71,7 @@
 </template>
   
 <script>
-// import axios from 'axios'
+import axios from 'axios'
 import Info from '../../components/teacher/showInfo.vue'
 import Work from '../../components/teacher/showWork.vue'
 
@@ -92,15 +92,37 @@ export default {
             }
         ],
         teacher_id:'',
-        user: []
+        tea: [{
+                teacher_id:'',
+                password:'',
+                fist_name:'',
+                last_name:'',
+                gender:'',
+                solial_id:'',
+                bathday:'',
+                nationality:'',
+                phone_number:'',
+                first_name_father:'',
+                last_name_father:'',
+                first_name_mother:'',
+                last_name_mother:'',
+                fist_name_parent:'',
+                last_name_parent:'',
+                phone_number_of_parent:'',
+                status_id:'',
+                school_year:'',
+                grade:'',
+                room:''
+
+            }]
     }),
     mounted() {
         this.checkLogin();
         this.storage();
-        // axios.get('http://localhost/service/student/info.php',{params: {id:this.student_id}})
-        // .then((resp) => {
-        //     this.user = resp.data.response  
-        // });
+        axios.get('http://localhost/service/teacher/info.php',{params: {id:this.teacher_id}})
+        .then((resp) => {
+            this.tea = resp.data.response
+        })
     },
     methods: {
         hendleLogout() {

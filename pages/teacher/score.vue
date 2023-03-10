@@ -55,7 +55,7 @@
         },
         methods: {
           storage(){
-            this.student_id = sessionStorage.getItem('user_id')
+            this.teacher_id = sessionStorage.getItem('user_id')
           }        
         },
     }
