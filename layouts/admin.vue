@@ -57,6 +57,16 @@ export default {
                     title: 'Schedule',
                     to: '/admin/subject',
                 },
+                {
+                    icon: 'mdi-account-multiple',
+                    title: 'Advicers',
+                    to: '/admin/advicers',
+                },
+                {
+                    icon: 'mdi-folder',
+                    title: 'Enroll Subject',
+                    to: '/admin/enroll_subject',
+                },
             ],
         }
     }
