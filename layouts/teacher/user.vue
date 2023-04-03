@@ -1,6 +1,6 @@
 <template>
     <v-app id="inspire">
-        <v-app-bar app="flat">
+        <v-app-bar flat>
             <!-- <v-avatar :color="$vuetify.breakpoint.smAndDown ? 'grey darken-1' : 'transparent'" size="32"></v-avatar> -->
             <v-tabs centered class="ml-9" color="grey darken-1">
                 <v-tab v-for="(item, link) in links" :key="link" :to="item.to">
@@ -18,17 +18,17 @@
                     <v-list-item-content class="justify-center">
                         <div class="mx-auto text-center">
                             <v-avatar color="brown"></v-avatar>
-                            <!-- <h3>{{ user[0].fist_name}}&nbsp;{{ user[0].last_name }}</h3> -->
+                            <h3>{{ tea[0].fist_name}}&nbsp;{{ tea[0].last_name }}</h3>
                             <v-divider class="my-3"></v-divider>
-                            <v-btn depressed text to="/student/score">
+                            <v-btn depressed text to="/teacher/score">
                                 Score
                             </v-btn>
                             <v-divider class="my-3"></v-divider>
-                            <v-btn depressed text to="/student/grade">
+                            <v-btn depressed text to="/teacher/grade">
                                 Grade
                             </v-btn>
                             <v-divider class="my-3"></v-divider>
-                            <v-btn depressed text to="/student/classmate">
+                            <v-btn depressed text to="/teacher/classmate">
                                 Classmate
                             </v-btn>
                             <v-divider class="my-3"></v-divider>
@@ -72,8 +72,8 @@
   
 <script>
 import axios from 'axios'
-import Info from '../../components/student/showInfo.vue'
-import Work from '../../components/student/showWork.vue'
+import Info from '../../components/teacher/showInfo.vue'
+import Work from '../../components/teacher/showWork.vue'
 
 export default {
     components: {
@@ -88,12 +88,12 @@ export default {
             },
             {
                 title: 'schedule',
-                to: '/student/schedule',
+                to: '/teacher/schedule',
             }
         ],
-        student_id:'',
-        user: [
-            {student_id:'',
+        teacher_id:'',
+        tea: [{
+                teacher_id:'',
                 password:'',
                 fist_name:'',
                 last_name:'',
@@ -112,15 +112,17 @@ export default {
                 status_id:'',
                 school_year:'',
                 grade:'',
-                room:''}]
+                room:''
+
+            }]
     }),
     mounted() {
         this.checkLogin();
         this.storage();
-        axios.get('http://localhost/service_ip3/student/info.php',{params: {id:this.student_id}})
+        axios.get('http://localhost/service_ip3/teacher/info.php',{params: {id:this.teacher_id}})
         .then((resp) => {
-            this.user = resp.data.response  
-        });
+            this.tea = resp.data.response
+        })
     },
     methods: {
         hendleLogout() {
@@ -133,7 +135,7 @@ export default {
             } 
         },
         storage(){
-            this.student_id = sessionStorage.getItem('user_id')
+            this.teacher_id = sessionStorage.getItem('user_id')
         }   
     },
     

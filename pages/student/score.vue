@@ -52,7 +52,7 @@ import axios from 'axios'
         mounted() {
           this.storage();
 
-          axios.get('http://localhost/service/student/score.php',{params: {id:this.student_id}})
+          axios.get('http://localhost/service_ip3/student/score.php',{params: {id:this.student_id}})
           .then((resp) => {
             this.score = resp.data.response
           });

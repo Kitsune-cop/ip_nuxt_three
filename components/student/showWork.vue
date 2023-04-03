@@ -17,7 +17,7 @@ export default {
     },
     mounted() {
         this.storage();
-        axios.get('http://localhost/service/student/work.php',{params: {id:this.student_id}})
+        axios.get('http://localhost/service_ip3/student/work.php',{params: {id:this.student_id}})
           .then((resp) => {
             this.work = resp.data.response
           });

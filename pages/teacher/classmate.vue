@@ -33,10 +33,10 @@
 <script>
 import axios from 'axios'
     export default{
-      layout: 'student/user',
+      layout: 'teacher/user',
         data()  {
             return {
-                student_id:'',
+                teacher_id:'',
                 user: [],
                 stu: [],
                 teas: [],
@@ -45,16 +45,16 @@ import axios from 'axios'
         mounted() {
           
           this.storage();
-          // axios.get('http://localhost/service/student/info.php',{params: {id:this.student_id}})
-          // .then((resp) => {
-          //     this.user = resp.data.response  
-          // });
-          // axios.get('http://localhost/service/student/advicers.php',{params: {id:this.student_id}})
-          // .then((resp) => {
-          //   this.teas = resp.data.response
-          // });
-          // console.log(this.user[0])// eslint-disable-line no-console
-          axios.get('http://localhost/service_ip3/student/classmate.php',{params: {class:'1',room:'1'}})
+        //   axios.get('http://localhost/service/student/info.php',{params: {id:this.student_id}})
+        //   .then((resp) => {
+        //       this.user = resp.data.response  
+        //   });
+        //   axios.get('http://localhost/service/student/advicers.php',{params: {id:this.student_id}})
+        //   .then((resp) => {
+        //     this.teas = resp.data.response
+        //   });
+        //   console.log(this.user[0])// eslint-disable-line no-console
+          axios.get('http://localhost/service_ip3/teacher/classmate.php',{params: {id:this.teacher_id}})
           .then((resp) => {
             this.stu = resp.data.response
           });
@@ -62,7 +62,7 @@ import axios from 'axios'
         },
         methods: {
           storage(){
-            this.student_id = sessionStorage.getItem('user_id')
+            this.teacher_id = sessionStorage.getItem('user_id')
           }        
         },
     }
