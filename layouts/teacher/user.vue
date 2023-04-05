@@ -119,7 +119,7 @@ export default {
     mounted() {
         this.checkLogin();
         this.storage();
-        axios.get('http://localhost/service/teacher/info.php',{params: {id:this.teacher_id}})
+        axios.get('http://localhost/service_ip3/teacher/info.php',{params: {id:this.teacher_id}})
         .then((resp) => {
             this.tea = resp.data.response
         })

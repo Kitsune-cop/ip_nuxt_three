@@ -54,7 +54,7 @@ import axios from 'axios'
         //     this.teas = resp.data.response
         //   });
         //   console.log(this.user[0])// eslint-disable-line no-console
-          axios.get('http://localhost/service/teacher/classmate.php',{params: {id:this.teacher_id}})
+          axios.get('http://localhost/service_ip3/teacher/classmate.php',{params: {id:this.teacher_id}})
           .then((resp) => {
             this.stu = resp.data.response
           });

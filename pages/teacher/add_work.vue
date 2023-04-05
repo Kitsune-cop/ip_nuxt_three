@@ -5,13 +5,13 @@
             <v-form actions=''>
                 <v-row>
                     <v-col>
-                        <v-text-field v-model="work_name" color="primary" label="Work Name" variant="underlined" type="password"></v-text-field>
+                        <v-text-field v-model="work_name" color="primary" label="Work Name" variant="underlined" ></v-text-field>
                         <v-text-field v-model="work_details" color="primary" label="Work Details" variant="underlined"></v-text-field>
                         <v-text-field v-model="subject_id" color="primary" label="Subject ID" variant="underlined"></v-text-field>
                     </v-col>     
                     <v-col>
                         <v-text-field v-model="grade" color="primary" label="Class" variant="underlined"></v-text-field>
-                        <v-text-field v-model="room" color="primary" label="Room" variant="underlined" type="password"></v-text-field>
+                        <v-text-field v-model="room" color="primary" label="Room" variant="underlined" ></v-text-field>
                     </v-col>      
                 </v-row>
                 <v-btn color="success" class='mx-3' @click="handleSubmit()">submit</v-btn>
@@ -21,7 +21,7 @@
     </div>
 </template>
 <script>
-import axios from 'axios'
+import axios from 'axios';
     export default{
       layout: 'teacher/user',
         data:() =>  ({
@@ -43,19 +43,20 @@ import axios from 'axios'
         },
         methods: {
             handleSubmit() {
-            axios.post('http://localhost/service/admin/add_student.php',
-                {
-                    teacher_id: '',
-                    work_name:'',
-                    work_details:'',
-                    subject_id:'',
-                    grade:'',
-                    room:'',  
-                }
-            )
+                axios.post('http://localhost/service_ip3/teacher/add_work.php',
+                    {
+                        teacher_id: this.teacher_id,
+                        work_name: this.work_name,
+                        work_details: this.work_details,
+                        subject_id: this.subject_id,
+                        grade: this.grade,
+                        room: this.room,  
+                    }
+                )
+                // console.log(this.work_name)// eslint-disable-next-line no-console
             },
           storage(){
-            this.student_id = sessionStorage.getItem('user_id')
+            this.teacher_id = sessionStorage.getItem('user_id')
           }        
         },
     }
