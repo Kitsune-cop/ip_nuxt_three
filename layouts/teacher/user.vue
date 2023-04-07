@@ -84,7 +84,7 @@ export default {
         links: [
             {
                 title: 'home',
-                to: '/',
+                to: '/teacher/',
             },
             {
                 title: 'schedule',

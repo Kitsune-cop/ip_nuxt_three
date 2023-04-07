@@ -5,13 +5,13 @@
             <v-form actions=''>
                 <v-row>
                     <v-col>
-                        <v-text-field v-model="work_name" color="primary" label="Work Name" variant="underlined" ></v-text-field>
-                        <v-text-field v-model="work_details" color="primary" label="Work Details" variant="underlined"></v-text-field>
-                        <v-text-field v-model="subject_id" color="primary" label="Subject ID" variant="underlined"></v-text-field>
+                        <v-text-field v-model="details[0].work_name" color="primary" label="Work Name" variant="underlined" ></v-text-field>
+                        <v-text-field v-model="details[0].work_details" color="primary" label="Work Details" variant="underlined"></v-text-field>
+                        <v-text-field v-model="details[0].subject_id" color="primary" label="Subject ID" variant="underlined"></v-text-field>
                     </v-col>     
                     <v-col>
-                        <v-text-field v-model="grade" color="primary" label="Class" variant="underlined"></v-text-field>
-                        <v-text-field v-model="room" color="primary" label="Room" variant="underlined" ></v-text-field>
+                        <v-text-field v-model="details[0].grade" color="primary" label="Class" variant="underlined"></v-text-field>
+                        <v-text-field v-model="details[0].room" color="primary" label="Room" variant="underlined" ></v-text-field>
                         <v-menu
                         v-model="menu2"
                         :close-on-content-click="false"
@@ -51,15 +51,21 @@ import axios from 'axios';
     export default{
       layout: 'teacher/user',
         data:vm =>  ({
-                teacher_id: '',
+            teacher_id: '',
+            work_id:'',
+            details: [{
                 work_name:'',
                 work_details:'',
                 subject_id:'',
                 grade:'',
                 room:'',  
-                date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
-                dateFormatted: vm.formatDate((new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)),
-                menu2: false,
+                deadline:''
+            }],
+            det: [],
+            date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+            dateFormatted: vm.formatDate((new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)),
+            menu2: false,
+                
         }),
         computed: {
             computedDateFormatted () {
@@ -72,30 +78,40 @@ import axios from 'axios';
             },
         },
         // created(){
-        //   this.getInfo()
-        //   this.getAdvciers()
-        //   this.getSche()
-        // //   console.log(this.datas)// eslint-disable-next-line no-console
+        //     this.storage();
+        //     axios.get('http://localhost/service_ip3/teacher/work_forEdit.php',{params: {id:this.work_id}})
+        //     .then((resp) => {
+        //         this.details = resp.data.response
+        //         console.log(this.details)// eslint-disable-next-line no-console
+        //     });
         // },
         mounted() {
-        this.storage();
+            this.storage();
+            axios.get('http://localhost/service_ip3/teacher/work_forEdit.php',{params: {id:this.work_id}})
+            .then((resp) => {
+                this.details = resp.data.response
+                // console.log(this.details)// eslint-disable-next-line no-console
+            });
         },
         methods: {
             handleSubmit() {
                 axios.post('http://localhost/service_ip3/teacher/edit_work.php',
                     {
                         // teacher_id: this.teacher_id,
-                        work_name: this.work_name,
-                        work_details: this.work_details,
-                        subject_id: this.subject_id,
-                        grade: this.grade,
-                        room: this.room,
+                        work_id: this.work_id,
+                        work_name: this.details[0].work_name,
+                        work_details: this.details[0].work_details,
+                        subject_id: this.details[0].subject_id,
+                        grade: this.details[0].grade,
+                        room: this.details[0].room,
                         date: this.date,  
                     }   
                 )
                 .then((res)=>{
                         // console.log(res.data)// eslint-disable-next-line no-console
-                    })
+                })
+                window.location = '/teacher'
+
                 // console.log(this.subject_id)// eslint-disable-next-line no-console
             },
             formatDate (date) {
@@ -112,6 +128,7 @@ import axios from 'axios';
             },
           storage(){
             this.teacher_id = sessionStorage.getItem('user_id')
+            this.work_id = sessionStorage.getItem('work_id')
           }        
         },
     }
