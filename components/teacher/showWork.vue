@@ -3,18 +3,14 @@
         <v-row>
             <v-col cols="8">
                 <h3>Homework</h3>
-            </v-col>
-            <v-col cols="4">
                 <v-btn class="success" to="/teacher/add_work">
                     <v-icon dark>mdi-plus</v-icon>
                     <!-- ADD WORK -->
                 </v-btn>
             </v-col>
-            
-        </v-row>
-        <v-divider></v-divider>
-        <v-row>
+
             <v-col cols="12">
+                <v-divider></v-divider>
                  <ul v-for="item in work" :key="item.work_id">
                 <v-col>
                     <li>{{ item.subject_id }}</li><p><b class="red--text">{{ item.work_name }}:</b>{{ item.work_details }}</p><p class="red">Deadline:{{ item.deadline }}</p>
