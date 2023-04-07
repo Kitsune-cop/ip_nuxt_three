@@ -1,13 +1,21 @@
 <template lang="html">
     <div>
         <h3>Homework</h3>
+        
+
+        
         <ul v-for="item in work" :key="item.work_id">
-            <li>{{ item.subject_id }}</li><p><b class="red--text">{{ item.work_name }}:</b>{{ item.work_details }}</p><p class="red">Deadline:{{ item.deadline }}</p>
+            <v-col>
+                <li>{{ item.subject_id }}</li><p><b class="red--text">{{ item.work_name }}:</b>{{ item.work_details }}</p><p class="red">Deadline:{{ item.deadline }}</p>
+                <v-btn class="warning">EDIT</v-btn>
+            </v-col>
             <v-divider></v-divider>
         </ul>
+        <v-col>
         <v-btn class="success" to="/teacher/add_work">
             ADD WORK
         </v-btn>
+        </v-col>
     </div>
 </template>
 <script>
