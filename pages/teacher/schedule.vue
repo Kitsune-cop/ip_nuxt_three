@@ -1,148 +1,289 @@
-<template lang="HTML">
-    <div>
-        <v-card class=text-center>
-            <h3>Schedule</h3>
-            <v-card-subtitle>Schoolyear:{{ datas[0].school_year }}</v-card-subtitle>
-            <v-simple-table >
-                <template v-slot:default>
-                  <thead>
-                    <tr>
-                      <th >
-                        Day/Time
-                      </th>
-                      <th v-for="(item,i) in times" :key="i">
-                        {{item.name}}
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr v-for="(item,i) in days" :key="i">
-                      <td>{{ item.name }}</td>
-                      <!-- <td v-for="(time,i) in times" :key="i"> {{table[i].subject_id}}</td> -->
-                    </tr>
-     
-                  </tbody>
-                </template>
-              </v-simple-table>
-        </v-card>
-    </div>
+<template lang="">
+  <div>
+      <v-container>
+          <v-row>
+              <h1 class="my-5">School year {{ data_form.school_year }} Grade {{ data_form.grade }} Room {{ data_form.room }}</h1>
+          </v-row>
+          <v-row>
+              <v-col cols="1"></v-col>
+              <v-col>08:00-09:00</v-col>
+              <v-col>09:00-10:00</v-col>
+              <v-col>10:00-11:00</v-col>
+              <v-col>11:00-12:00</v-col>
+              <v-col>12:00-13:00</v-col>
+              <v-col>13:00-14:00</v-col>
+              <v-col>14:00-15:00</v-col>
+              <v-col>15:00-16:00</v-col>
+          </v-row>
+          <v-row>
+              <v-col cols='1'>MON</v-col>
+              <v-col><v-btn outlined x-large @click="handle(0)">{{time_table[0].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(1)">{{time_table[1].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(2)">{{time_table[2].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(3)">{{time_table[3].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large disabled>LUNCH</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(4)">{{time_table[4].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(5)">{{time_table[5].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(6)">{{time_table[6].subject_id}}</v-btn></v-col>
+          </v-row>
+          <v-row>
+              <v-col cols='1'>TUE</v-col>
+              <v-col><v-btn outlined x-large @click="handle(7)">{{time_table[7].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(8)">{{time_table[8].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(9)">{{time_table[9].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(10)">{{time_table[10].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large disabled>LUNCH</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(11)">{{time_table[11].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(12)">{{time_table[12].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(13)">{{time_table[13].subject_id}}</v-btn></v-col>
+          </v-row>
+          <v-row>
+              <v-col cols='1'>WED</v-col>
+              <v-col><v-btn outlined x-large @click="handle(14)">{{time_table[14].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(15)">{{time_table[15].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(16)">{{time_table[16].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(17)">{{time_table[17].subject_id}}</v-btn></v-col> 
+              <v-col><v-btn outlined x-large disabled>LUNCH</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(18)">{{time_table[18].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(19)">{{time_table[19].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(20)">{{time_table[20].subject_id}}</v-btn></v-col>
+          </v-row>
+          <v-row>
+              <v-col cols='1'>THU</v-col>
+              <v-col><v-btn outlined x-large @click="handle(21)">{{time_table[21].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(22)">{{time_table[22].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(23)">{{time_table[23].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(24)">{{time_table[24].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large disabled>LUNCH</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(25)">{{time_table[25].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(26)">{{time_table[26].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(27)">{{time_table[27].subject_id}}</v-btn></v-col>
+          </v-row>
+          <v-row>
+              <v-col cols='1'>FRI</v-col>
+              <v-col><v-btn outlined x-large @click="handle(28)">{{time_table[28].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(29)">{{time_table[29].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(30)">{{time_table[30].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(31)">{{time_table[31].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large disabled>LUNCH</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(32)">{{time_table[32].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(33)">{{time_table[33].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large @click="handle(34)">{{time_table[34].subject_id}}</v-btn></v-col>
+          </v-row>
+          <v-form>
+                  <v-row v-show="status_form.expansion" class="mt-4">
+                  <v-col><v-text-field
+                      id="subject_id"
+                      v-model="data_form.subject_id"
+                      name="subject_id"
+                      label="Subject ID"
+                      @:blur="get_subject_name()"
+                      ></v-text-field></v-col>
+                  <v-col><v-text-field
+                      id="subject_name"
+                      v-model="data_form.subject_name"
+                      disabled
+                      name="subject_name"
+                      label="Subject name"
+                  ></v-text-field></v-col>
+                  <v-col><v-text-field
+                      id="teacher_id"
+                      v-model="data_form.teacher_id"
+                      name="teacher_id"
+                      label="Teacher ID"
+                      @:blur="get_teacher_name()"
+                  ></v-text-field></v-col>
+                  <v-col><v-text-field
+                      id="teacher_name"
+                      v-model="data_form.teacher_name"
+                      disabled
+                      name="teacher_name"
+                      label="Teacher name"
+                  ></v-text-field></v-col>
+                  <v-col>
+                      <v-btn color="success" @click="submit_form()">submit</v-btn>
+                  </v-col>
+              </v-row>
+              </v-form>
+      </v-container>
+  </div>
 </template>
 <script>
-// import axios from 'axios'
-    export default{
-      layout: 'teacher/user',
-        data:() =>  ({
-                student_id: 'S15523',
-                days: [
-                    {name: 'Monday',},
-                    {name: 'Tuesday',},
-                    {name: 'Wednesday',},
-                    {name: 'Thursday',},
-                    {name: 'Friday',},
-                ],
+import axios from 'axios';
+export default {
+  layout: 'admin',
+  data() {
+      return {
+          status_form: {
+              expansion: false,
+              index: ''
+          },
+          data_form: {
+              subject_id: '',
+              subject_name: '',
+              school_year: '',
+              grade: '',
+              room: '',
+              teacher_id: '',
+              teacher_name: '',
+          },
+          time_table: [
+              { "time_table_id": "", "time": "08:00:00", "term": "2", "day": "MON", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "09:00:00", "term": "2", "day": "MON", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "10:00:00", "term": "2", "day": "MON", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "11:00:00", "term": "2", "day": "MON", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "13:00:00", "term": "2", "day": "MON", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "14:00:00", "term": "2", "day": "MON", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "15:00:00", "term": "2", "day": "MON", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
 
-                times: [
-                    {time: '08.00-09.50'},
-                    {time: '10.00-10.50'},
-                    {time: '11.00-11.50'},
-                    {time: '13.00-13.50'},
-                    {time: '14.00-14.50'},
-                    {time: '15.00-15.50'},
-                ],
-                datas: [{
-                      student_id:'',
-                      password:'',
-                      fist_name:'',
-                      last_name:'',
-                      gender:'',
-                      solial_id:'',
-                      bathday:'',
-                      nationality:'',
-                      phone_number:'',
-                      first_name_father:'',
-                      last_name_father:'',
-                      first_name_mother:'',
-                      last_name_mother:'',
-                      fist_name_parent:'',
-                      last_name_parent:'',
-                      phone_number_of_parent:'',
-                      status_id:'',
-                      school_year:'',
-                      grade:'',
-                      room:''
+              { "time_table_id": "", "time": "08:00:00", "term": "2", "day": "TUE", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "09:00:00", "term": "2", "day": "TUE", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "10:00:00", "term": "2", "day": "TUE", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "11:00:00", "term": "2", "day": "TUE", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "13:00:00", "term": "2", "day": "TUE", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "14:00:00", "term": "2", "day": "TUE", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "15:00:00", "term": "2", "day": "TUE", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
 
-                }
-                ],
-                teas: [{
-                    student_id: '',
-                    school_year: '',
-                    grade: '',
-                    room: '',
-                    teacher_id: '',
-                    password: '',
-                    fist_name: '',
-                    last_name: '',
-                    gender: '',
-                    solial_id: '',
-                    bathday: '',
-                    nationality: '',
-                    phone_number: '',
-                    first_name_father: '',
-                    last_name_father: '',
-                    first_name_mother: '',
-                    last_name_mother: '',
-                    fist_name_parent: '',
-                    last_name_parent: '',
-                    phone_number_of_parent: '',
-                    status_id: ''
-                }
-                ],
-                table: [{
-                    student_id:'',
-                    school_year: '',
-                    grade: '',
-                    room: '',
-                    time_table_id:'',
-                    time: '',
-                    term: '',
-                    enroll_subject_id: '',
-                    teacher_id: '',
-                    subject_id: '',
-                    },
-                ],
+              { "time_table_id": "", "time": "08:00:00", "term": "2", "day": "WED", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "09:00:00", "term": "2", "day": "WED", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "10:00:00", "term": "2", "day": "WED", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "11:00:00", "term": "2", "day": "WED", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "13:00:00", "term": "2", "day": "WED", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "14:00:00", "term": "2", "day": "WED", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "15:00:00", "term": "2", "day": "WED", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
 
-        }),
-        // created(){
-        //   this.getInfo()
-        //   this.getAdvciers()
-        //   this.getSche()
-        // //   console.log(this.datas)// eslint-disable-next-line no-console
-        // },
-        mounted() {
-        this.storage();
-        },
-        methods: {
-        //   getInfo(){
-        //     axios.get('http://localhost/service/student/info.php',{params: {id:this.student_id}})
-        //     .then((resp) => {
-        //       this.datas = resp.data.response
-        //     });
-        //   },
-        //   getAdvciers(){
-        //     axios.get('http://localhost/service/student/advicers.php',{params: {id:this.student_id}})
-        //     .then((resp) => {
-        //       this.teas = resp.data.response
-        //     });
-        //   },
-        //   getSche(){
-        //     axios.get('http://localhost/service/student/schedule.php',{params: {id:this.student_id}})
-        //     .then((resp) => {
-        //       this.table = resp.data.response
-        //     });
-        //   },
-          storage(){
-            this.teacher_id = sessionStorage.getItem('user_id')
-          }        
-        },
-    }
+              { "time_table_id": "", "time": "08:00:00", "term": "2", "day": "THU", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "09:00:00", "term": "2", "day": "THU", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "10:00:00", "term": "2", "day": "THU", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "11:00:00", "term": "2", "day": "THU", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "13:00:00", "term": "2", "day": "THU", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "14:00:00", "term": "2", "day": "THU", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "15:00:00", "term": "2", "day": "THU", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+
+              { "time_table_id": "", "time": "08:00:00", "term": "2", "day": "FRI", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "09:00:00", "term": "2", "day": "FRI", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "10:00:00", "term": "2", "day": "FRI", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "11:00:00", "term": "2", "day": "FRI", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "13:00:00", "term": "2", "day": "FRI", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "14:00:00", "term": "2", "day": "FRI", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+              { "time_table_id": "", "time": "15:00:00", "term": "2", "day": "FRI", "teacher_id": "", "subject_id": "", "subject_name": "", "first_name": "", "last_name": "", "enroll_subject_id": "" },
+             ]
+      }
+  },
+  beforeCreate() {
+      axios.get('http://localhost/service_ip3/admin/enroll_subject/get_subject_by_class.php')
+          .then((resp) => {
+              // this.time_table = resp.data.response
+              for (const i in this.time_table){
+                  for (const x in resp.data.response){
+                      if (this.time_table[i].day === resp.data.response[x].day && this.time_table[i].time === resp.data.response[x].time){
+                          this.time_table[i] = resp.data.response[x]
+                      }
+                  };
+              }
+          })
+      for(const i in this.time_table){
+          this.time_table[i] = (Object.assign(this.time_table[i], { "school_year": this.data_form.school_year, "grade": this.data_form.grade, "room": this.data_form.room }));
+      }    
+  },
+  created() {
+      this.data_form.school_year = this.$route.query.school_year;
+      this.data_form.grade = this.$route.query.grade;
+      this.data_form.room = this.$route.query.room;
+      
+      axios.get('http://localhost/service_ip3/admin/enroll_subject/get_subject_by_class.php',
+          {params: 
+              {school_year: this.data_form.school_year,
+              grade: this.data_form.grade,
+              room: this.data_form.room,}
+          })
+          .then((resp) => {
+              // this.time_table = resp.data.response
+              for (const i in this.time_table){
+                  for (const x in resp.data.response){
+                      if (this.time_table[i].day === resp.data.response[x].day && this.time_table[i].time === resp.data.response[x].time){
+                          this.time_table[i] = resp.data.response[x]
+                      }
+                  };
+              }
+          })
+  },
+  mounted() {
+  },
+  updated() {
+      axios.get('http://localhost/service_ip3/admin/enroll_subject/get_subject_by_class.php')
+          .then((resp) => {
+              // this.time_table = resp.data.response
+              for (const i in this.time_table){
+                  for (const x in resp.data.response){
+                      if (this.time_table[i].day === resp.data.response[x].day && this.time_table[i].time === resp.data.response[x].time){
+                          this.time_table[i] = resp.data.response[x]
+                      }
+                  };
+              }
+          })
+      for(const i in this.time_table){
+          this.time_table[i] = (Object.assign(this.time_table[i], { "school_year": this.data_form.school_year, "grade": this.data_form.grade, "room": this.data_form.room }));
+      }
+      // console.log(this.time_table);
+      
+  },
+  methods: {
+      get_subject_name(){
+          this.data_form.subject_name = ''
+          axios.get('http://localhost/service_ip3/admin/subject/show_data_subject.php',
+          {params :{subject_id: this.data_form.subject_id}})
+          .then((resp) => {
+                  this.data_form.subject_name = resp.data.response[0].subject_name
+              })
+      },
+      get_teacher_name(){
+          this.data_form.teacher_name = ''
+          axios.get('http://localhost/service_ip3/admin/teacher/show_data_teacher.php',
+          {params :{teacher_id: this.data_form.teacher_id}})
+          .then((resp) => {
+                  this.data_form.teacher_name = resp.data.response[0].first_name + "  " + resp.data.response[0].last_name
+              })
+      },
+      submit_form(){
+          // console.log(this.status_form.index);
+          this.time_table[this.status_form.index].subject_id = this.data_form.subject_id
+          this.time_table[this.status_form.index].subject_name = this.data_form.subject_name
+          this.time_table[this.status_form.index].teacher_id = this.data_form.teacher_id
+          this.time_table[this.status_form.index].first_name = this.data_form.teacher_name.split("  ")[0]
+          this.time_table[this.status_form.index].last_name = this.data_form.teacher_name.split("  ")[1]
+          // console.log(this.time_table[this.status_form.index])
+          if(this.time_table[this.status_form.index].subject_name !== "" && this.time_table[this.status_form.index].first_name !== ""){
+              axios.post("http://localhost/service_ip3/admin/time_table/manage_time_table.php",this.time_table[this.status_form.index])
+              // .then((resp) => {
+              //     console.log(resp);
+              // });
+              this.status_form.expansion = false
+          }
+
+      },
+      handle(index) {
+          this.status_form.index = index
+          this.status_form.expansion = !this.status_form.expansion
+          this.data_form.subject_id = this.time_table[index].subject_id
+          this.data_form.subject_name = this.time_table[index].subject_name
+          this.data_form.teacher_id = this.time_table[index].teacher_id
+          this.data_form.teacher_name = this.time_table[index].first_name + "  " + this.time_table[index].last_name
+      },
+      // get_subject() {
+      //     axios.get('http://localhost/service_ip3/admin/enroll_subject/get_subject_by_class.php',
+      //     {params: 
+      //         {school_year: this.data_form.school_year,
+      //         grade: this.data_form.grade,
+      //         room: this.data_form.room,}
+      //     })
+      //         // .then((resp) => {
+      //         //     console.log(resp.status);
+      //         // })
+      // },
+  },
+}
 </script>
+<style lang="">
+  
+</style>
