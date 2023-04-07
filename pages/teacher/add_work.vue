@@ -26,11 +26,11 @@ import axios from 'axios';
       layout: 'teacher/user',
         data:() =>  ({
                 teacher_id: '',
-                work_name:'',
-                work_details:'',
-                subject_id:'',
-                grade:'',
-                room:'',  
+                work_name:'Testtttt',
+                work_details:'TestTest',
+                subject_id:'ท21102',
+                grade:'1',
+                room:'1',  
         }),
         // created(){
         //   this.getInfo()
@@ -51,9 +51,12 @@ import axios from 'axios';
                         subject_id: this.subject_id,
                         grade: this.grade,
                         room: this.room,  
-                    }
+                    }   
                 )
-                // console.log(this.work_name)// eslint-disable-next-line no-console
+                .then((res)=>{
+                        console.log(res.data)// eslint-disable-next-line no-console
+                    })
+                // console.log(this.subject_id)// eslint-disable-next-line no-console
             },
           storage(){
             this.teacher_id = sessionStorage.getItem('user_id')
