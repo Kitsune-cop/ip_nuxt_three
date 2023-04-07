@@ -67,6 +67,11 @@ export default {
                     title: 'Enroll Subject',
                     to: '/admin/enroll_subject',
                 },
+                {
+                    icon: 'mdi-folder',
+                    title: 'Enroll',
+                    to: '/admin/enroll',
+                },
             ],
         }
     }
