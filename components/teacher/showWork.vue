@@ -7,7 +7,7 @@
         <ul v-for="item in work" :key="item.work_id">
             <v-col>
                 <li>{{ item.subject_id }}</li><p><b class="red--text">{{ item.work_name }}:</b>{{ item.work_details }}</p><p class="red">Deadline:{{ item.deadline }}</p>
-                <v-btn class="warning">EDIT</v-btn>
+                <v-btn class="warning"  to="/teacher/edit_work">EDIT</v-btn>
             </v-col>
             <v-divider></v-divider>
         </ul>
