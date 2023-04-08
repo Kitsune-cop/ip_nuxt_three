@@ -2,7 +2,7 @@
     <div>
         <h3>Homework</h3>
         <ul v-for="item in work" :key="item.work_id">
-            <li>{{ item.subject_id }}</li><p>{{ item.work_name }}:{{ item.work_details }}</p>
+            <li>{{ item.subject_id }}</li><p><b class="red--text">{{ item.work_name }}</b>:{{ item.work_details }}</p><p class="red">Deadline:{{ item.deadline }}</p>
             <v-divider></v-divider>
         </ul>
     </div>
