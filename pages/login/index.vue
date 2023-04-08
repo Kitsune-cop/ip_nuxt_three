@@ -7,7 +7,6 @@
                 <p class="text-red-darken-4">{{ errorMsg }}</p>
                 <v-btn color="success" @click="handleLoginClicked">Login</v-btn>
             </v-form>
-            {{ password }}
         </v-container>
     </div>
 </template>
