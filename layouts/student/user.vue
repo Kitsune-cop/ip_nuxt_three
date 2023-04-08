@@ -125,7 +125,7 @@ export default {
     methods: {
         hendleLogout() {
             sessionStorage.clear()
-            window.location = './login'
+            window.location = '/login'
         },
         checkLogin() {
             if(!sessionStorage.getItem('user_id')){
