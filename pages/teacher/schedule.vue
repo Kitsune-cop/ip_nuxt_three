@@ -92,7 +92,6 @@
                       name="teacher_name"
                       label="Teacher name"
                       disabled
-                      @:blur="get_teacher_name()"
                   ></v-text-field></v-col> 
         </v-row>
       </v-container>
@@ -265,6 +264,7 @@ export default {
           this.data_form.subject_name = this.time_table[index].subject_name
           this.data_form.teacher_id = this.time_table[index].teacher_id
           this.data_form.teacher_name = this.time_table[index].first_name + "  " + this.time_table[index].last_name
+          this.get_teacher_name()
       },
       // get_subject() {
       //     axios.get('http://localhost/service_ip3/admin/enroll_subject/get_subject_by_class.php',
