@@ -70,11 +70,13 @@
               <v-col><v-btn outlined x-large @click="handle(33)">{{time_table[33].subject_id}}</v-btn></v-col>
               <v-col><v-btn outlined x-large @click="handle(34)">{{time_table[34].subject_id}}</v-btn></v-col>
           </v-row> 
+          <v-row>
                  <v-col ><v-text-field
                       id="subject_id"
                       v-model="data_form.subject_id"
                       name="subject_id"
                       label="Subject ID"
+                      disabled
                       @:blur="get_subject_name()"
                       ></v-text-field></v-col>
                   <v-col ><v-text-field
@@ -82,12 +84,14 @@
                       v-model="data_form.subject_name"
                       name="subject_name"
                       label="Subject name"
+                      disabled
                   ></v-text-field></v-col>
                   <v-col cols="6"><v-text-field
                       id="teacher_name"
                       v-model="data_form.teacher_name"
                       name="teacher_name"
                       label="Teacher name"
+                      disabled
                       @:blur="get_teacher_name()"
                   ></v-text-field></v-col> 
         </v-row>
