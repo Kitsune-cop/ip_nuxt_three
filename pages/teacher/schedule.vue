@@ -2,7 +2,7 @@
   <div>
       <v-container>
           <v-row>
-              <h1 class="my-5">School year {{ data_form.school_year }} Grade {{ data_form.grade }} Room {{ data_form.room }}</h1>
+              <h1 class="my-5">ตารางสอน</h1>
           </v-row>
           <v-row>
               <v-col cols="1"></v-col>
