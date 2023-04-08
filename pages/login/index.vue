@@ -26,23 +26,23 @@ export default {
     methods: {
         handleLoginClicked() {
             if(this.username[0] === 'T'){
-                this.url = 'http://localhost/service/teacher/login.php?username=' + this.username + '&password=' + MD5(this.password)
+                this.url = 'http://localhost/service_ip3/teacher/login.php?username=' + this.username + '&password=' + MD5(this.password)
                 axios.get(this.url).then((resp)=>{
                     // console.log(resp)
                     sessionStorage.setItem('user_id', this.username)
                     sessionStorage.setItem('password', MD5(this.password))
-                    window.location = '/'
+                    window.location = '/teacher'
                 })
                 .catch(()=>{
                     this.errorMsg = 'Incorrect username or password.'
                 })
             }else{
-                this.url = 'http://localhost/service/student/logins.php?username=' + this.username + '&password=' + MD5(this.password)
+                this.url = 'http://localhost/service_ip3/student/logins.php?username=' + this.username + '&password=' + MD5(this.password)
                 axios.get(this.url).then((resp)=>{
                     // console.log(resp)
                     sessionStorage.setItem('user_id', this.username)
                     sessionStorage.setItem('password', MD5(this.password))
-                    window.location = '/'
+                    window.location = '/student'
                 })
                 .catch(()=>{
                     this.errorMsg = 'Incorrect username or password.'
