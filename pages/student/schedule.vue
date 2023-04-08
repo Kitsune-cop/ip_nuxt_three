@@ -247,7 +247,7 @@ export default {
       },
       get_teacher_name(){
           this.data_form.teacher_name = ''
-          axios.get('http://localhost/service_ip3/student/info.php',
+          axios.get('http://localhost/service_ip3/teacher/info.php',
           {params :{id: this.data_form.teacher_id}})
           .then((resp) => {
                   this.data_form.teacher_name = resp.data.response[0].first_name + "  " + resp.data.response[0].last_name
