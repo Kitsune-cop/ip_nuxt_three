@@ -7,11 +7,12 @@
                     <v-col>
                         <v-text-field v-model="work_name" color="primary" label="Work Name" variant="underlined" ></v-text-field>
                         <v-text-field v-model="work_details" color="primary" label="Work Details" variant="underlined"></v-text-field>
-                        <v-text-field v-model="subject_id" color="primary" label="Subject ID" variant="underlined"></v-text-field>
+                        <v-text-field v-model="data_form.subject_id" color="primary" label="Subject ID" disabled variant="underlined"></v-text-field>
+                        <v-text-field v-model="data_form.subject_name" color="primary" label="Subject Name" disabled variant="underlined"></v-text-field>
                     </v-col>     
                     <v-col>
-                        <v-text-field v-model="grade" color="primary" label="Class" variant="underlined"></v-text-field>
-                        <v-text-field v-model="room" color="primary" label="Room" variant="underlined" ></v-text-field>
+                        <v-text-field v-model="data_form.grade" color="primary" label="Grade" disabled variant="underlined"></v-text-field>
+                        <v-text-field v-model="data_form.room" color="primary" label="Room" disabled variant="underlined" ></v-text-field>
                         <v-menu
                         v-model="menu2"
                         :close-on-content-click="false"
@@ -51,6 +52,7 @@ import axios from 'axios';
     export default{
       layout: 'teacher/user',
         data:vm =>  ({
+                time_table_id:'',
                 teacher_id: '',
                 work_name:'',
                 work_details:'',
@@ -60,6 +62,7 @@ import axios from 'axios';
                 date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
                 dateFormatted: vm.formatDate((new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)),
                 menu2: false,
+                data_form: [],
         }),
         computed: {
             computedDateFormatted () {
@@ -71,14 +74,18 @@ import axios from 'axios';
                 this.dateFormatted = this.formatDate(this.date)
             },
         },
-        // created(){
-        //   this.getInfo()
-        //   this.getAdvciers()
-        //   this.getSche()
-        // //   console.log(this.datas)// eslint-disable-next-line no-console
-        // },
+        created(){
+          this.time_table_id = this.$route.query.tb_id;
+        },
         mounted() {
-        this.storage();
+            this.storage();
+        
+            axios.get('http://localhost/service_ip3/teacher/show_for_addW.php',{params: {tb_id:this.time_table_id}})
+            .then((resp) => {
+                this.data_form = resp.data.response[0]
+                // console.log(this.data_form)// eslint-disable-next-line no-console
+            });
+            
         },
         methods: {
             handleSubmit() {
@@ -87,16 +94,14 @@ import axios from 'axios';
                         // teacher_id: this.teacher_id,
                         work_name: this.work_name,
                         work_details: this.work_details,
-                        subject_id: this.subject_id,
-                        grade: this.grade,
-                        room: this.room,
-                        date: this.date,  
+                        date: this.date, 
+                        enroll_subject_id: this.data_form.enroll_subject_id 
                     }   
                 )
                 .then((res)=>{
                         // console.log(res.data)// eslint-disable-next-line no-console
                     })
-                // console.log(this.subject_id)// eslint-disable-next-line no-console
+                
             },
             formatDate (date) {
                 if (!date) return null
