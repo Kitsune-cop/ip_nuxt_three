@@ -7,11 +7,12 @@
                     <v-col>
                         <v-text-field v-model="details[0].work_name" color="primary" label="Work Name" variant="underlined" ></v-text-field>
                         <v-text-field v-model="details[0].work_details" color="primary" label="Work Details" variant="underlined"></v-text-field>
-                        <v-text-field v-model="details[0].subject_id" color="primary" label="Subject ID" variant="underlined"></v-text-field>
+                        <v-text-field v-model="details[0].subject_id" color="primary" label="Subject ID"  disabled variant="underlined"></v-text-field>
+                        <v-text-field v-model="details[0].subject_name" color="primary" label="Subject Name" disabled  variant="underlined"></v-text-field>
                     </v-col>     
                     <v-col>
-                        <v-text-field v-model="details[0].grade" color="primary" label="Class" variant="underlined"></v-text-field>
-                        <v-text-field v-model="details[0].room" color="primary" label="Room" variant="underlined" ></v-text-field>
+                        <v-text-field v-model="details[0].grade" color="primary" label="Class" disabled variant="underlined"></v-text-field>
+                        <v-text-field v-model="details[0].room" color="primary" label="Room" disabled variant="underlined" ></v-text-field>
                         <v-menu
                         v-model="menu2"
                         :close-on-content-click="false"
@@ -57,6 +58,7 @@ import axios from 'axios';
                 work_name:'',
                 work_details:'',
                 subject_id:'',
+                subject_name:'',
                 grade:'',
                 room:'',  
                 deadline:''

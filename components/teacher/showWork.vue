@@ -3,10 +3,6 @@
         <v-row>
             <v-col cols="8">
                 <h3>Homework</h3>
-                <v-btn class="success" to="/teacher/add_work">
-                    <v-icon dark>mdi-plus</v-icon>
-                    <!-- ADD WORK -->
-                </v-btn>
             </v-col>
 
             <v-col cols="12">

@@ -86,13 +86,17 @@
                       label="Subject name"
                       disabled
                   ></v-text-field></v-col>
-                  <v-col cols="6"><v-text-field
+                  <v-col><v-text-field
                       id="teacher_name"
                       v-model="data_form.teacher_name"
                       name="teacher_name"
                       label="Teacher name"
                       disabled
                   ></v-text-field></v-col> 
+                 <v-col><v-btn class="success" :to="'/teacher/add_work?tb_id='+data_form.time_table_id">
+                    <v-icon dark>mdi-plus</v-icon>
+                    ADD WORK
+                </v-btn></v-col> 
         </v-row>
       </v-container>
   </div>
@@ -109,6 +113,7 @@ export default {
               index: ''
           },
           data_form: {
+              time_table_id:'',
               subject_id: '',
               subject_name: '',
               school_year: '',
@@ -260,6 +265,7 @@ export default {
       handle(index) {
           this.status_form.index = index
           this.status_form.expansion = !this.status_form.expansion
+          this.data_form.time_table_id = this.time_table[index].time_table_id
           this.data_form.subject_id = this.time_table[index].subject_id
           this.data_form.subject_name = this.time_table[index].subject_name
           this.data_form.teacher_id = this.time_table[index].teacher_id
