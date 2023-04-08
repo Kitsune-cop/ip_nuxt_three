@@ -129,7 +129,7 @@ export default {
         },
         checkLogin() {
             if(!sessionStorage.getItem('user_id')){
-                window.location = './login'
+                window.location = '/login'
             } 
         },
         storage(){
