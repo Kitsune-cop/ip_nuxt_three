@@ -15,60 +15,60 @@
               <v-col class="blue">14:00-15:00</v-col>
               <v-col class="blue">15:00-16:00</v-col>
           </v-row>
-          <v-row>
+          <v-row class="">
               <v-col cols='1' class="cyan">MON</v-col>
-              <v-col><v-btn outlined x-large @click="handle(0)">{{time_table[0].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(1)">{{time_table[1].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(2)">{{time_table[2].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(3)">{{time_table[3].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large disabled class="red">LUNCH</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(4)">{{time_table[4].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(5)">{{time_table[5].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(6)">{{time_table[6].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(0)">{{time_table[0].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(1)">{{time_table[1].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(2)">{{time_table[2].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(3)" >{{time_table[3].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="red text-body-2" outlined x-large disabled >LUNCH</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(4)">{{time_table[4].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(5)">{{time_table[5].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(6)">{{time_table[6].subject_id}}</v-btn></v-col>
           </v-row>
           <v-row>
               <v-col cols='1' class="cyan">TUE</v-col>
-              <v-col><v-btn outlined x-large @click="handle(7)">{{time_table[7].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(8)">{{time_table[8].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(9)">{{time_table[9].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(10)">{{time_table[10].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large disabled class="red">LUNCH</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(11)">{{time_table[11].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(12)">{{time_table[12].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(13)">{{time_table[13].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(7)">{{time_table[7].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(8)">{{time_table[8].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(9)">{{time_table[9].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(10)">{{time_table[10].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="red text-body-2" outlined x-large disabled >LUNCH</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(11)">{{time_table[11].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(12)">{{time_table[12].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(13)">{{time_table[13].subject_id}}</v-btn></v-col>
           </v-row>
           <v-row>
               <v-col cols='1' class="cyan">WED</v-col>
-              <v-col><v-btn outlined x-large @click="handle(14)">{{time_table[14].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(15)">{{time_table[15].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(16)">{{time_table[16].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(17)">{{time_table[17].subject_id}}</v-btn></v-col> 
-              <v-col><v-btn outlined x-large disabled class="red">LUNCH</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(18)">{{time_table[18].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(19)">{{time_table[19].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(20)">{{time_table[20].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(14)">{{time_table[14].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(15)">{{time_table[15].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(16)">{{time_table[16].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(17)">{{time_table[17].subject_id}}</v-btn></v-col> 
+              <v-col><v-btn class="red text-body-2" outlined x-large disabled>LUNCH</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(18)">{{time_table[18].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(19)">{{time_table[19].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(20)">{{time_table[20].subject_id}}</v-btn></v-col>
           </v-row>
           <v-row>
               <v-col cols='1' class="cyan">THU</v-col>
-              <v-col><v-btn outlined x-large @click="handle(21)">{{time_table[21].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(22)">{{time_table[22].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(23)">{{time_table[23].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(24)">{{time_table[24].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large disabled class="red">LUNCH</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(25)">{{time_table[25].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(26)">{{time_table[26].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(27)">{{time_table[27].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(21)">{{time_table[21].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(22)">{{time_table[22].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(23)">{{time_table[23].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(24)">{{time_table[24].subject_id}}</v-btn></v-col>
+              <v-col><v-btn outlined x-large disabled class="red text-body-2">LUNCH</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(25)">{{time_table[25].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(26)">{{time_table[26].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(27)">{{time_table[27].subject_id}}</v-btn></v-col>
           </v-row>
           <v-row>
               <v-col cols='1' class="cyan">FRI</v-col>
-              <v-col><v-btn outlined x-large @click="handle(28)">{{time_table[28].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(29)">{{time_table[29].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(30)">{{time_table[30].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(31)">{{time_table[31].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large disabled class="red">LUNCH</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(32)">{{time_table[32].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(33)">{{time_table[33].subject_id}}</v-btn></v-col>
-              <v-col><v-btn outlined x-large @click="handle(34)">{{time_table[34].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(28)">{{time_table[28].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(29)">{{time_table[29].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(30)">{{time_table[30].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(31)">{{time_table[31].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="red text-body-2" outlined x-large disabled>LUNCH</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(32)">{{time_table[32].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(33)">{{time_table[33].subject_id}}</v-btn></v-col>
+              <v-col><v-btn class="text-body-2" outlined x-large @click="handle(34)">{{time_table[34].subject_id}}</v-btn></v-col>
           </v-row> 
                  <v-col ><v-text-field
                       id="subject_id"
