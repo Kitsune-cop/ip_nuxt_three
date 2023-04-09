@@ -1,7 +1,7 @@
 <template lang="html">
     <div>
         <h4>Teacher id: {{ teacher_id }}</h4>
-        <h4>Name: {{ tea[0].fist_name }}&nbsp;{{ tea[0].last_name }}</h4>
+        <h4>Name: {{ tea[0].first_name }}&nbsp;{{ tea[0].last_name }}</h4>
         <h4>Tel: {{ tea[0].phone_number }}</h4>
         <h4>Gender: {{ tea[0].gender }}</h4>
         <h4>Birthday: {{ tea[0].bathday }}</h4>
@@ -16,7 +16,7 @@ export default {
             tea: [{
                 teacher_id:'',
                 password:'',
-                fist_name:'',
+                first_name:'',
                 last_name:'',
                 gender:'',
                 solial_id:'',
