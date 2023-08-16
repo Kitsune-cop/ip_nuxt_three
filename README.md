@@ -1,5 +1,5 @@
 # ip_nuxt_three
-When you want to test, you need to go to branch Test
+When you want to test, you need to go to branches Test
 ## Build Setup
 
 ```bash
